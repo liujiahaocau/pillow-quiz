@@ -816,7 +816,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="./pillow-quiz-8.0.4.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="./pillow-quiz-8.0.6.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -850,6 +850,11 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4.5h6v6"/><path d="M20 4.5l-8.5 8.5"/><path d="M19 14.5v4a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18.5v-11A1.5 1.5 0 0 1 6.5 6h4"/></svg>
           打开网页版
         </a>
+        <!-- [__pzV805bSite] v8.0.5：使用网页版下方补「资源备份下载」按钮（与页面末尾资源区同源链接） -->
+        <div class="mirror" style="margin-top:12px">
+          <a class="btn btn-ghost btn-sm" href="https://pan.baidu.com/s/1gCwJwe_y8oU_85hycHkZAw?pwd=zt78" id="webpanBaidu" target="_blank" rel="noopener">百度网盘备份</a>
+          <a class="btn btn-ghost btn-sm" href="https://pan.quark.cn/s/9a87ae5a493b" id="webpanQuark" target="_blank" rel="noopener">夸克网盘备份</a>
+        </div>
         <div class="dl-note">想固定到桌面？看下方「保存到桌面」说明</div>
       </div>
 
@@ -1005,17 +1010,17 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
    apkLocal  : 同目录相对路径（首选）——部署时把 .apk 一起传上去
    ============================================================ */
 const CFG = {
-  version : '8.0.4',
-  code    : 178,
-  apkName : 'pillow-quiz-8.0.4.apk',
-  apkLocal: './pillow-quiz-8.0.4.apk',
+  version : '8.0.6',
+  code    : 180,
+  apkName : 'pillow-quiz-8.0.6.apk',
+  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.6.apk',
   apkSize : '12.8 MB',
-  sha256  : '4d367b035f773a6ebce391258585ed2f253105fe0ade5688c79c9763df56e411',
-  date    : '2026-10-11',
+  sha256  : 'a38c96143c4df36188b0f43806cfcfa36b85eca1e7d1dcf00b7280fef4dd65fb',
+  date    : '2026-10-12',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   web     : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.4.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.6.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/netdisk/share?surl=_wCY3mntnwtQNrVHlk9CPA',
     baiduPwd : 'pz80',
@@ -1055,8 +1060,9 @@ const CFG = {
       .catch(() => setApk(CFG.apkFallback));
   })();
 
-  [['#mirrorBaidu', PAN_BAIDU], ['#panBaidu', PAN_BAIDU], ['#footBaidu', PAN_BAIDU],
-   ['#mirrorQuark', CFG.pan.quark], ['#panQuark', CFG.pan.quark], ['#footQuark', CFG.pan.quark]
+  /* [__pzV805bSite] webpan* = 网页版卡下的资源备份按钮 */
+  [['#mirrorBaidu', PAN_BAIDU], ['#panBaidu', PAN_BAIDU], ['#footBaidu', PAN_BAIDU], ['#webpanBaidu', PAN_BAIDU],
+   ['#mirrorQuark', CFG.pan.quark], ['#panQuark', CFG.pan.quark], ['#footQuark', CFG.pan.quark], ['#webpanQuark', CFG.pan.quark]
   ].forEach(([sel, url]) => { const el = $(sel); if (el) el.href = url; });
 
   /* ---------- 主题：跟随系统 + 手动切换 + 记忆 ---------- */
