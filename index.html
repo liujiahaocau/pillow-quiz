@@ -159,14 +159,51 @@ h1{
 .btn-ghost:hover{transform:translateY(-2px);border-color:var(--brand);color:var(--brand)}
 .btn-sm{padding:11px 20px;font-size:14px;border-radius:11px}
 
-.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.lib-card{background:var(--bg-card);border:1px solid var(--border-line);border-radius:14px;padding:13px 14px;box-shadow:var(--shadow-1);transition:.2s}
-.lib-card:hover{transform:translateY(-2px);border-color:var(--brand)}
-.lib-t{font-size:14.6px;font-weight:700;color:var(--text-main);margin-bottom:7px;line-height:1.4}
-.lib-d{font-size:12.6px;color:var(--text-sub);line-height:1.75}
-.lib-n{display:inline-block;margin-top:9px;font-size:11.4px;font-weight:650;color:var(--brand);background:var(--brand-tint,rgba(var(--brand-rgb),.1));padding:3px 9px;border-radius:8px}
-.lib-cta{text-align:center;margin-top:24px}
-.lib-note{font-size:12.2px;color:var(--text-dim);margin-top:12px;line-height:1.7}
+/* [__pzV807Lib2] 资料库列表式（仿网盘文件视图）—— 全部走主题变量，深浅色自适应 */
+/* [__pzV808Tpl] 题库模板区 */
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tpl-card{background:var(--bg-card);border:1px solid var(--border-line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-1);display:flex;flex-direction:column;gap:10px}
+.tpl-card:hover{border-color:var(--brand)}
+.tpl-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tpl-name{font-size:15px;font-weight:700;color:var(--text-main)}
+.tpl-tag{font-size:11px;font-weight:650;color:var(--brand);background:var(--brand-tint,rgba(var(--brand-rgb),.1));padding:3px 9px;border-radius:8px;white-space:nowrap}
+.tpl-desc{font-size:12.6px;color:var(--text-sub);line-height:1.75;flex:1}
+.tpl-dl{width:100%;justify-content:center}
+.tpl-note{font-size:12.2px;color:var(--text-dim);text-align:center;margin-top:16px;line-height:1.8}
+/* [__pzV808Legal] 合规说明区 */
+.legal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.legal-card{background:var(--bg-card);border:1px solid var(--border-line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-1)}
+.legal-t{font-size:14.6px;font-weight:700;color:var(--text-main);margin-bottom:11px;padding-bottom:9px;border-bottom:1px solid var(--border-soft,var(--border-line))}
+.legal-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.legal-list li{font-size:12.6px;color:var(--text-sub);line-height:1.82}
+.legal-list b{color:var(--text-main);font-weight:650}
+.legal-list a{color:var(--brand);text-decoration:none;border-bottom:1px dotted var(--brand)}
+[data-theme="dark"] .tpl-card,[data-theme="dark"] .legal-card{border-color:#2a3344}
+[data-theme="dark"] .legal-t{border-bottom-color:#232d3d}
+
+.lib-panel{background:var(--bg-card);border:1px solid var(--border-line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-1)}
+.lib-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;background:var(--brand-tint,rgba(var(--brand-rgb),.07));border-bottom:1px solid var(--border-line);flex-wrap:wrap}
+.lib-bar-name{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:700;color:var(--text-main)}
+.lib-bar-name svg{width:19px;height:19px;color:var(--brand);flex:none}
+.lib-bar-meta{font-size:12px;color:var(--text-sub)}
+.lib-list{max-height:340px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.lib-row{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border-soft,var(--border-line));transition:background .16s}
+.lib-row:last-child{border-bottom:none}
+.lib-row:hover{background:var(--bg-input,rgba(var(--brand-rgb),.05))}
+.lib-ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:none}
+.lib-ic svg{width:18px;height:18px}
+.lib-ic.d{background:var(--brand-tint,rgba(var(--brand-rgb),.1));color:var(--brand)}
+.lib-ic.f{background:var(--bg-input,rgba(120,140,170,.12));color:var(--text-sub)}
+.lib-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.lib-name{font-size:13.6px;font-weight:600;color:var(--text-main);line-height:1.4;word-break:break-all}
+.lib-sub{font-size:11.6px;color:var(--text-sub);line-height:1.5}
+.lib-cta{text-align:center;margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;align-items:center}
+.lib-note{flex-basis:100%;font-size:12.2px;color:var(--text-dim);margin:6px 0 0}
+[data-theme="dark"] .lib-panel{border-color:#2a3344}
+[data-theme="dark"] .lib-row{border-bottom-color:#232d3d}
+[data-theme="dark"] .lib-row:hover{background:rgba(255,255,255,.04)}
+[data-theme="dark"] .lib-ic.d{background:rgba(var(--brand-rgb),.18)}
+[data-theme="dark"] .lib-ic.f{background:rgba(255,255,255,.07)}
 
 .hero-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 @media(min-width:920px){.hero-chips{justify-content:flex-start}}
@@ -630,12 +667,20 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
             下载安卓版
           </a>
+          <a class="btn btn-ghost" id="heroTpl" href="#templates">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7A1.6 1.6 0 0 0 5.4 5.1v13.8A1.6 1.6 0 0 0 7 20.5h10a1.6 1.6 0 0 0 1.6-1.6V8.1z"/><path d="M14 3.5V8.1h4.6"/><path d="M9 13h6M9 16.5h4"/></svg>
+            题库模板下载
+          </a>
+          <!-- [__pzV808StripWeb] 以下「直接网页使用」仅 GitHub 版保留；
+               CloudBase 版（新域名）在构建时整块删除，规避备案期"二级页面含 AI/会员"的审核风险。 -->
+          <!-- __PZ_STRIP_WEB_BEGIN__ -->
           <a class="btn btn-ghost" id="heroWeb" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.9 12h18.2"/><path d="M12 2.8a15 15 0 0 1 0 18.4 15 15 0 0 1 0-18.4z"/></svg>
             直接网页使用
           </a>
+          <!-- __PZ_STRIP_WEB_END__ -->
           <!-- [__pzV807Lib] 资料库直达：一键跳转网盘资料库 -->
-          <a class="btn btn-ghost" id="heroLib" href="https://pan.baidu.com/s/1gCwJwe_y8oU_85hycHkZAw?pwd=zt78" target="_blank" rel="noopener">
+          <a class="btn btn-ghost" id="heroLib" href="https://pan.baidu.com/netdisk/share?surl=_wCY3mntnwtQNrVHlk9CPA&pwd=pz80" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H9l1.6 1.8h7.9A1.5 1.5 0 0 1 20 7.3v11.2A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5z"/></svg>
             资料库直达
           </a>
@@ -833,7 +878,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="./pillow-quiz-8.0.7.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="./pillow-quiz-8.0.8.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -910,7 +955,57 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   </div>
 </section>
 
-<!-- ========== 资料库（配套资料，免费） ========== -->
+<!-- ========== 题库模板（4 种格式，与 App 解析器一致） ========== -->
+<section id="templates">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker">Templates</span>
+      <h2>题库模板下载</h2>
+      <p class="sec-sub">按模板整理好内容，导入 App 即可自动识别题型、选项、答案与解析；模板格式与 App 内置导入规则完全一致。</p>
+    </div>
+
+    <div class="tpl-grid">
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">📊 Excel 题库模板</span><span class="tpl-tag">.xlsx · 推荐</span></div>
+        <p class="tpl-desc">批量整理题库：题型 / 题目 / 选项 A-F / 答案 / 解析 / 知识点 / 图片URL / 图注，一表一题，支持单选、多选、判断、填空、主观题与配图。</p>
+        <a class="btn btn-sm btn-ghost tpl-dl" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/templates/题库模板.xlsx" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          下载模板
+        </a>
+      </div>
+
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">📄 Word 导入范本</span><span class="tpl-tag">.txt · 范例</span></div>
+        <p class="tpl-desc">题号、选项、答案、解析的标准排版示例；含单选 / 判断 / 填空 / 多选写法，以及「答案：A / 答案为A / 故选A」等常见写法说明。</p>
+        <a class="btn btn-sm btn-ghost tpl-dl" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/templates/Word题库导入范本.txt" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          下载模板
+        </a>
+      </div>
+
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">📕 PDF 导入范本</span><span class="tpl-tag">.txt · 说明</span></div>
+        <p class="tpl-desc">文字版 PDF 直接导入即可；本范本给出标准排版示例与扫描版处理建议（拍照录题 / 先 OCR 转文字）。</p>
+        <a class="btn btn-sm btn-ghost tpl-dl" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/templates/PDF题库导入范本.txt" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          下载模板
+        </a>
+      </div>
+
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">🃏 闪卡模板</span><span class="tpl-tag">.xlsx · 两列</span></div>
+        <p class="tpl-desc">正反面两列，一行一张卡。填好后在「闪卡 → 导入」选择该文件即可批量生成闪卡。</p>
+        <a class="btn btn-sm btn-ghost tpl-dl" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/templates/闪卡模板.xlsx" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          下载模板
+        </a>
+      </div>
+    </div>
+    <p class="tpl-note rv">整理好的文件在 App 里走「我的题库 → 导入题库」选择即可；也支持 Anki(.apkg)、粉笔模板、CSV / JSON / Markdown 等格式。</p>
+  </div>
+</section>
+
+<!-- ========== 资料库（配套资料，免费）—— 列表式，仿网盘文件视图 ========== -->
 <section id="library">
   <div class="wrap">
     <div class="sec-head rv">
@@ -919,68 +1014,141 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
       <p class="sec-sub">题库、讲义、笔记、真题按分类整理在网盘，可直接转存下载，长期更新。</p>
     </div>
 
-    <div class="lib-grid">
-      <div class="lib-card rv">
-        <div class="lib-t">📘 公考笔记</div>
-        <div class="lib-d">【1】公考高端笔记</div>
-        <span class="lib-n">行测 / 申论 高端笔记整理</span>
+    <div class="lib-panel rv">
+      <div class="lib-bar">
+        <span class="lib-bar-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg>枕头刷题-资源库</span>
+        <span class="lib-bar-meta">共 17 项 · 网盘长期留存</span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">⚖️ 法硕笔记</div>
-        <div class="lib-d">【2】法硕高端笔记</div>
-        <span class="lib-n">法硕考研系统笔记</span>
+      <div class="lib-list">
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【0】安卓下载 apk 直接安装，苹果通过链接浏览器打开保存在桌面</span><span class="lib-sub">各版本安装包</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">🎯 名师题库</div>
-        <div class="lib-d">【3】公考名师题库</div>
-        <span class="lib-n">各机构名师题库合集</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【1】公考高端笔记</span><span class="lib-sub">行测 / 申论 高端笔记整理</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">📐 判断推理专项</div>
-        <div class="lib-d">【10】青菜白玉汤 ·【11】国宝熊猫君 ·【12】李陈 ·【13】薛睿328题</div>
-        <span class="lib-n">4 套判断推理专项资料</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【2】法硕高端笔记</span><span class="lib-sub">法硕考研系统笔记</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">📊 行测讲义</div>
-        <div class="lib-d">【5】陈怀安行测圣经 ·【4】公考正道是沧桑</div>
-        <span class="lib-n">系统课讲义</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【3】公考名师题库</span><span class="lib-sub">各机构名师题库合集</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">📝 真题与答案</div>
-        <div class="lib-d">【6】国考历年真题 ·【9】申论各省份</div>
-        <span class="lib-n">历年真题 + 答案汇编</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【4】公考正道是沧桑</span><span class="lib-sub">公考系统课资料</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">📚 考研专项</div>
-        <div class="lib-d">【7】考研英语 ·【8】考研政治</div>
-        <span class="lib-n">考研公共课资料</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【5】陈怀安行测圣经讲义</span><span class="lib-sub">行测系统课讲义</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">🔤 选词填空</div>
-        <div class="lib-d">【14】张弓选词大典</div>
-        <span class="lib-n">词语积累与辨析</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【6】国考历年真题答案汇编</span><span class="lib-sub">国考历年真题 + 答案</span></span>
       </div>
-
-      <div class="lib-card rv">
-        <div class="lib-t">📖 使用指南</div>
-        <div class="lib-d">全功能详解 PDF · 安装教程视频</div>
-        <span class="lib-n">上手与安装说明</span>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【7】考研英语资料</span><span class="lib-sub">考研英语专项</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【8】考研政治资料</span><span class="lib-sub">考研政治专项</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【9】申论各省份答案汇编</span><span class="lib-sub">申论真题与答案</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【10】青菜白玉汤判断推理</span><span class="lib-sub">判断推理专项</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【11】国宝熊猫君言语</span><span class="lib-sub">言语理解专项</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【12】李陈定义判断讲义与题库</span><span class="lib-sub">定义判断讲义 + 题库</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【13】薛睿判断328题</span><span class="lib-sub">判断推理专项题库</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2A1.7 1.7 0 0 1 5.2 5.5h3.6l1.7 2h8.3a1.7 1.7 0 0 1 1.7 1.7v8.1a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7z"/></svg></span>
+        <span class="lib-info"><span class="lib-name">【14】张弓选词大典</span><span class="lib-sub">选词填空词语积累</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8.5z"/><path d="M13.5 3.5V8.5h5"/></svg></span>
+        <span class="lib-info"><span class="lib-name">枕头刷题_全功能详解.pdf</span><span class="lib-sub">全部功能图文说明（13 MB）</span></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-ic f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8.5z"/><path d="M13.5 3.5V8.5h5"/></svg></span>
+        <span class="lib-info"><span class="lib-name">苹果版鸿蒙版安装教程.mp4</span><span class="lib-sub">安装演示视频（24 MB）</span></span>
+      </div>
       </div>
     </div>
 
     <div class="lib-cta rv">
-      <a class="btn btn-primary" id="libOpen" href="https://pan.baidu.com/s/1gCwJwe_y8oU_85hycHkZAw?pwd=zt78" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-        打开网盘资料库
+      <a class="btn btn-primary" id="libOpenBaidu" href="https://pan.baidu.com/netdisk/share?surl=_wCY3mntnwtQNrVHlk9CPA&pwd=pz80" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 18.5a3.8 3.8 0 0 1-.5-7.6 5.2 5.2 0 0 1 10-1.3 3.6 3.6 0 0 1 1.3 7"/></svg>
+        百度网盘资料库
       </a>
-      <p class="lib-note">资料免费提供，网盘长期留存；建议先转存到自己的网盘再下载。</p>
+      <a class="btn btn-ghost" id="libOpenQuark" href="https://pan.quark.cn/s/30f6dd62a81c" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 3.4v17.2M3.4 12h17.2"/></svg>
+        夸克网盘资料库
+      </a>
+      <p class="lib-note">资料免费提供 · 建议先转存到自己的网盘再下载</p>
+    </div>
+  </div>
+</section>
+
+<!-- [__pzV807Lib2] 列表式改版 -->
+<!-- ========== 开发者信息 · 隐私政策 · 权限说明 ========== -->
+<section id="legal">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker">Legal</span>
+      <h2>开发者信息与合规说明</h2>
+      <p class="sec-sub">个人信息处理、应用权限的完整说明，请在使用前阅读。</p>
+    </div>
+
+    <div class="legal-grid">
+      <div class="legal-card rv">
+        <div class="legal-t">开发者信息</div>
+        <ul class="legal-list">
+          <li>应用名称：<b>枕头刷题</b></li>
+          <li>开发者：个人开发者（独立开发）</li>
+          <li>备案号：<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">鲁ICP备2026052086号-2</a></li>
+          <li>联系方式：App 内「我的 → 联系我们」，或通过官网资料库页留言</li>
+          <li>官网：<a href="https://www.pillowquiz.cn/" target="_blank" rel="noopener">www.pillowquiz.cn</a></li>
+        </ul>
+      </div>
+
+      <div class="legal-card rv">
+        <div class="legal-t">隐私政策（要点）</div>
+        <ul class="legal-list">
+          <li><b>数据主要存在你的设备上</b>：题库、笔记、错题、学习进度默认保存在本机（浏览器/App 本地存储），不上传服务器。</li>
+          <li><b>登录后可选的云端同步</b>：仅当你在「我的」页绑定邮箱登录后，题库与学习数据才会加密同步到云端，用于换设备恢复；可随时在 App 内关闭同步或删除云端数据。</li>
+          <li><b>我们收集的信息</b>：登录邮箱（注册/找回）、昵称与头像（选填）、以及你主动提交的反馈内容；<b>不收集</b>通讯录、短信、位置、相册（除非你主动选择图片）、其他应用数据。</li>
+          <li><b>AI 解析功能</b>：当你主动使用「AI 解析」时，相关题干与选项会发送至第三方大模型服务用于生成解析内容；不使用该功能则不会发送。</li>
+          <li><b>第三方服务</b>：腾讯云（网站与应用托管）、大模型服务商（AI 解析）、网盘服务（资料下载）。</li>
+          <li><b>你的权利</b>：App 内可导出全部数据备份、清空本地数据、注销账号并删除云端记录。</li>
+        </ul>
+      </div>
+
+      <div class="legal-card rv">
+        <div class="legal-t">应用权限说明</div>
+        <ul class="legal-list">
+          <li><b>网络访问</b>（INTERNET / 网络状态）：用于云端同步、AI 解析、检查更新与加载在线资源；离线时核心刷题功能不受影响。</li>
+          <li><b>读取存储 / 图片</b>：仅在你主动「导入题库文件」或「选择题目配图」时读取你选中的文件，不会扫描其他内容。</li>
+          <li><b>写入存储</b>（Android 9 及以下）：用于保存你导出的题库备份与图片。</li>
+          <li><b>震动</b>：番茄钟到时与打卡提醒，可关闭。</li>
+          <li><b>安装应用</b>（REQUEST_INSTALL_PACKAGES）：仅用于应用内「检查更新」下载完成后安装新版本；不安装任何其他应用。</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -1104,17 +1272,17 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
    apkLocal  : 同目录相对路径（首选）——部署时把 .apk 一起传上去
    ============================================================ */
 const CFG = {
-  version : '8.0.7',
-  code    : 181,
-  apkName : 'pillow-quiz-8.0.7.apk',
-  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.7.apk',
+  version : '8.0.8',
+  code    : 182,
+  apkName : 'pillow-quiz-8.0.8.apk',
+  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.8.apk',
   apkSize : '12.8 MB',
-  sha256  : 'bec509e613d224295a7f9b27de21dee486f1efc369e514cdef0d9735006b6bba',
+  sha256  : '23baa137f61d9e3a28a46d67288345fe8392fb0b62e1331fb30a476025ac35ba',
   date    : '2026-10-13',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   web     : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.7.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.8.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/netdisk/share?surl=_wCY3mntnwtQNrVHlk9CPA',
     baiduPwd : 'pz80',
@@ -1129,7 +1297,9 @@ const CFG = {
   const $ = (s) => document.querySelector(s);
 
   const WEB_URL = CFG.web;
-  const PAN_BAIDU = CFG.pan.baidu + '?pwd=' + CFG.pan.baiduPwd;
+  /* [__pzV807Lib2] 拼提取码要判断原链接是否已有 ? —— 原写法无条件加 '?' 会拼出两个问号
+   *   （CFG.pan.baidu 形如 .../share?surl=xxx ⇒ 应用 '&pwd='） */
+  const PAN_BAIDU = CFG.pan.baidu + (CFG.pan.baidu.indexOf('?') >= 0 ? '&pwd=' : '?pwd=') + CFG.pan.baiduPwd;
 
   /* ---------- 注入配置到页面 ---------- */
   document.querySelectorAll('#verPill,#apkVer,#footVer').forEach(el => el.textContent = 'v' + CFG.version);
@@ -1158,7 +1328,8 @@ const CFG = {
 
   /* [__pzV805bSite] webpan* = 网页版卡下的资源备份按钮 */
   /* [__pzV807Lib] 资料库按钮 href 注入（与 CFG.pan.library 同源） */
-  [['#heroLib', CFG.pan.library], ['#libOpen', CFG.pan.library],
+  /* [__pzV807Lib2] 资料库双按钮：百度 / 夸克 */
+  [['#heroLib', PAN_BAIDU], ['#libOpenBaidu', PAN_BAIDU], ['#libOpenQuark', CFG.pan.quark],
    ['#mirrorBaidu', PAN_BAIDU], ['#panBaidu', PAN_BAIDU], ['#footBaidu', PAN_BAIDU], ['#webpanBaidu', PAN_BAIDU],
    ['#mirrorQuark', CFG.pan.quark], ['#panQuark', CFG.pan.quark], ['#footQuark', CFG.pan.quark], ['#webpanQuark', CFG.pan.quark]
   ].forEach(([sel, url]) => { const el = $(sel); if (el) el.href = url; });
