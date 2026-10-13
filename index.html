@@ -544,6 +544,9 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
 .foot-links a{padding:7px 14px;border-radius:9px;font-size:13.4px;color:var(--text-sub);border:1px solid var(--border-line);background:var(--bg-card);transition:.18s}
 .foot-links a:hover{color:var(--brand);border-color:var(--brand)}
 .copyright{font-size:12.6px;color:var(--text-dim);line-height:1.8}
+/* [__pzV807Icp] 备案号：低调展示，可点跳工信部查询站 */
+.foot-icp{display:inline-block;margin-top:8px;font-size:12px;color:var(--text-dim);text-decoration:none;border-bottom:1px dotted var(--border-line);transition:.18s}
+.foot-icp:hover{color:var(--brand);border-bottom-color:var(--brand)}
 
 /* ---------- 入场动画 ---------- */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .66s cubic-bezier(.16,1,.3,1),transform .66s cubic-bezier(.16,1,.3,1)}
@@ -816,7 +819,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="./pillow-quiz-8.0.6.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="./pillow-quiz-8.0.7.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -999,7 +1002,9 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
     </div>
     <div class="copyright">
       当前版本 <b id="footVer">v—</b> · 更新于 <span id="footDate">—</span><br>
-      本站为软件下载与使用说明页 · 安装包与资料以本页及官方网盘为准，请勿从第三方转载渠道下载
+      本站为软件下载与使用说明页 · 安装包与资料以本页及官方网盘为准，请勿从第三方转载渠道下载<br>
+      <!-- [__pzV807Icp] 工信部要求：备案号须展示并可跳转查询站 -->
+      <a class="foot-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">鲁ICP备2026052086号-2</a>
     </div>
   </div>
 </footer>
@@ -1010,17 +1015,17 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
    apkLocal  : 同目录相对路径（首选）——部署时把 .apk 一起传上去
    ============================================================ */
 const CFG = {
-  version : '8.0.6',
-  code    : 180,
-  apkName : 'pillow-quiz-8.0.6.apk',
-  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.6.apk',
+  version : '8.0.7',
+  code    : 181,
+  apkName : 'pillow-quiz-8.0.7.apk',
+  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.7.apk',
   apkSize : '12.8 MB',
-  sha256  : 'a38c96143c4df36188b0f43806cfcfa36b85eca1e7d1dcf00b7280fef4dd65fb',
-  date    : '2026-10-12',
+  sha256  : 'bec509e613d224295a7f9b27de21dee486f1efc369e514cdef0d9735006b6bba',
+  date    : '2026-10-13',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   web     : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.6.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.0.7.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/netdisk/share?surl=_wCY3mntnwtQNrVHlk9CPA',
     baiduPwd : 'pz80',
