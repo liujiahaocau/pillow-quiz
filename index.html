@@ -1072,10 +1072,10 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="step">
     <span class="no">1</span>
     <div class="sh">
-      <div class="r on hl"><i>⤴</i><span class="t">共享</span></div>
-      <div class="r"><i>🔖</i><span>添加到书签</span></div>
-      <div class="r"><i>📖</i><span>将书签添加到…</span></div>
-      <div class="r"><i>＋</i><span>新建标签页</span></div>
+      <div class="r on hl"><i></i><span class="t">共享</span></div>
+      <div class="r"><i></i><span>添加到书签</span></div>
+      <div class="r"><i></i><span>将书签添加到…</span></div>
+      <div class="r"><i></i><span>新建标签页</span></div>
     </div>
     <p class="cap">点底部「共享」</p>
   </div>
@@ -1083,10 +1083,10 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="step">
     <span class="no">2</span>
     <div class="grid2">
-      <div class="c"><div class="ic">📄</div><div class="lb">拷贝</div></div>
-      <div class="c"><div class="ic">🔖</div><div class="lb">书签</div></div>
-      <div class="c"><div class="ic">👓</div><div class="lb">阅读列表</div></div>
-      <div class="c"><div class="ic hl">⌄</div><div class="lb">查看更多</div></div>
+      <div class="c"><div class="ic">●</div><div class="lb">拷贝</div></div>
+      <div class="c"><div class="ic">●</div><div class="lb">书签</div></div>
+      <div class="c"><div class="ic">●</div><div class="lb">阅读列表</div></div>
+      <div class="c"><div class="ic hl">●</div><div class="lb">查看更多</div></div>
     </div>
     <p class="cap">选「查看更多」</p>
   </div>
@@ -1094,10 +1094,10 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="step">
     <span class="no">3</span>
     <div class="ls">
-      <div class="r"><i>📖</i><span>将书签添加到…</span></div>
-      <div class="r"><i>☆</i><span>添加到个人收藏</span></div>
-      <div class="r on hl"><i>⊞</i><span>添加到主屏幕</span></div>
-      <div class="r"><i>✎</i><span>标记</span></div>
+      <div class="r"><i></i><span>将书签添加到…</span></div>
+      <div class="r"><i></i><span>添加到个人收藏</span></div>
+      <div class="r on hl"><i></i><span>添加到主屏幕</span></div>
+      <div class="r"><i></i><span>标记</span></div>
     </div>
     <p class="cap">点「添加到主屏幕」</p>
   </div>
@@ -1304,6 +1304,14 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <button class="clr" id="tchClear" type="button" aria-label="清空">&times;</button>
 </div>
 <div class="lst">
+  <div class="row" data-k="红领巾 公考 言语 申论 视频">
+    <div class="sq g4"><img src="avatars/honglingjin.jpg" alt="红领巾" loading="lazy" onerror="this.remove()">红</div>
+    <div class="bd"><div class="l1"><b>红领巾</b><em>公考</em></div>
+      <p class="n1">公考课程 · 视频与配套笔记</p>
+      <div class="more">共 1 份 ›</div></div>
+  </div>
+
+
 
   <a class="row" href="/#download">
     <div class="sq"><img src="avatars/chen.jpg" alt="陈怀安" loading="lazy" onerror="this.remove()">陈</div>
@@ -1785,5 +1793,17 @@ a[href*="beian"]{display:inline-flex!important;align-items:center!important;
 a[href*="beian"] img{display:block!important;width:13px!important;height:14px!important;
  margin:0 4px 0 0!important;vertical-align:middle!important;border:0;flex:0 0 auto}
 a[href*="beian"]:not(:has(img)){border-bottom:1px dotted #33445F!important}
+
+/* [__pzIosFix] 指引块视觉修正：高亮白底、去 emoji、去掉压字的斜线 */
+.pz-ios .hl{background:#EAF2FF!important;box-shadow:0 0 0 2px #FF3B30!important}
+.pz-ios .hl:after{display:none!important}
+.pz-ios .sh .r.on,.pz-ios .ls .r.on{background:#EAF2FF!important;color:#0E1726!important}
+.pz-ios .sh .r i,.pz-ios .ls .r i,.pz-ios .grid2 .ic{display:none!important}
+.pz-ios .sh .r,.pz-ios .ls .r{justify-content:center!important;text-align:center;font-size:11.5px!important}
+.pz-ios .grid2 .lb{font-size:9px!important;color:#333!important;margin-top:0}
+.pz-ios .grid2 .ic{display:grid!important}
+.pz-ios .grid2 .c{position:relative}
+.pz-ios .grid2 .c .dot{width:26px;height:26px;border-radius:50%;background:#E2E2E7;margin:0 auto 4px;
+ font-size:0}
 </body>
 </html>
