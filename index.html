@@ -1779,5 +1779,17 @@ section h2{margin-bottom:8px!important}
 [class*="-grid"],[class*="grid"]{gap:10px!important}
 @media(min-width:820px){ section{padding-top:46px!important;padding-bottom:40px!important} }
 </style>
+<style id="pzFix3">
+/* 1) 去掉红框：只保留浅色底提示 */
+.pz-ios .hl{box-shadow:none!important;background:#EAF2FF!important;border:0!important}
+.pz-ios .hl:after{display:none!important}
+.pz-ios .grid2 .ic.hl{background:#DCE9FF!important}
+/* 2) FAQ 恢复原始内边距，并禁止裁字 */
+#faq details{padding:14px 14px!important;height:auto!important;max-height:none!important;
+ overflow:visible!important;margin-bottom:8px!important}
+#faq details[open]{padding-bottom:14px!important}
+#faq summary{line-height:1.65!important;padding:0!important;display:block;overflow:visible!important}
+#faq details p,#faq details div,#faq details ul{margin-bottom:0!important;overflow:visible!important}
+</style>
 </body>
 </html>
