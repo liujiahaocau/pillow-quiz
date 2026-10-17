@@ -1281,7 +1281,8 @@ const CFG = {
   sha256  : '1f4c88878aaae34071ae4662e081d159824b0b6608a0a015658b6b064c6bb478',
   date    : '2026-10-17',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
-  web     : 'https://www.pillowquiz.cn/',
+  /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
+  web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
   apkFallback : 'https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.1.0.apk',
   pan     : {
@@ -1451,5 +1452,10 @@ const CFG = {
   });
 })();
 </script>
+<a class="pz-webgo" href="/app/" target="_blank" rel="noopener">直接使用网页版 ›</a>
+<style>.pz-webgo{position:fixed;right:14px;bottom:16px;z-index:99999;background:#3a84f6;color:#fff;
+font:600 15px/1 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:15px 22px;
+border-radius:999px;text-decoration:none;box-shadow:0 8px 24px rgba(58,132,246,.45);}
+.pz-webgo:active{transform:scale(.97);}</style>
 </body>
 </html>
