@@ -643,6 +643,62 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
 </style></noscript>
 </head>
 <body>
+<!-- [__pzMigRecv] 兼容 App 内置「迁移到正式域名」按钮（App 侧用 PZ_MIG_* 协议）。
+     仅在 ?pzmig=1 且本页由旧域名的 window.open 打开时激活；普通访客零影响、无任何 UI。 -->
+<script>
+(function(){
+  try{
+    var OLD = 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com';
+    if(!/(^|[?&])pzmig=1/.test(location.search)) return;
+    if(!window.opener) return;
+    var DB='pillow_quiz_db', ST='kv';
+    var APP=/^(pillow|pz_|__pz|_pz|_LS_|_noteImg|pqu_|__pqu|zt_)/i;
+    function post(m){ try{ window.opener.postMessage(m, OLD); }catch(e){} }
+    function openDB(){
+      return new Promise(function(res){
+        var r; try{ r = indexedDB.open(DB); }catch(e){ return res(null); }
+        r.onupgradeneeded = function(){ try{ r.result.createObjectStore(ST); }catch(e){} };
+        r.onerror = function(){ res(null); };
+        r.onsuccess = function(){ res(r.result); };
+      });
+    }
+    function writeIDB(map){
+      return openDB().then(function(db){
+        if(!db) return 0;
+        var keys = Object.keys(map || {});
+        if(!keys.length){ try{ db.close(); }catch(e){} return 0; }
+        return new Promise(function(res){
+          var tx = db.transaction(ST, 'readwrite'), os = tx.objectStore(ST), n = 0;
+          keys.forEach(function(k){ try{ os.put(map[k], k); n++; }catch(e){} });
+          tx.oncomplete = function(){ try{ db.close(); }catch(e){} res(n); };
+          tx.onerror = function(){ try{ db.close(); }catch(e){} res(n); };
+        });
+      }).catch(function(){ return 0; });
+    }
+    var done = false;
+    window.addEventListener('message', function(ev){
+      if(ev.origin !== OLD) return;
+      var d = ev.data || {};
+      if(d.type === 'PZ_MIG_HELLO'){ post({ type:'PZ_MIG_READY' }); return; }
+      if(d.type === 'PZ_MIG_DATA' && !done){
+        done = true;
+        writeIDB(d.idb || {}).then(function(nIdb){
+          var nLs = 0;
+          Object.keys(d.ls || {}).forEach(function(k){
+            if(!APP.test(k)) return;
+            try{ localStorage.setItem(k, d.ls[k]); nLs++; }catch(e){}
+          });
+          post({ type:'PZ_MIG_DONE', idb:nIdb, ls:nLs });
+          setTimeout(function(){ try{ location.replace('/app/'); }catch(e){} }, 700);
+        });
+      }
+    }, false);
+    post({ type:'PZ_MIG_READY' });   /* 让旧域名的 App 立刻开始推数据 */
+  }catch(e){}
+})();
+</script>
+<!-- [__pzMigRecv] end -->
+
 
 <!-- ========== 导航 ========== -->
 <header class="nav" id="navBar">
