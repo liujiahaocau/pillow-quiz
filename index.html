@@ -890,6 +890,19 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <a class="btn btn-ghost btn-sm" href="https://pan.quark.cn/s/9a87ae5a493b" id="mirrorQuark" target="_blank" rel="noopener">夸克网盘备用</a>
         </div>
         <div class="dl-note">下载后如提示「未知来源」，按下方安装说明操作即可</div>
+        <!-- 下载没开始时的可见降级面板（默认隐藏；由点击逻辑在 N 秒后仍未见跳转时露出）
+             🔴 2026-10-30：原来这里什么都没有，失败只表现为"按钮转回原文案" —— 等于把失败藏起来。 -->
+        <div id="dlApkFail" hidden style="margin-top:12px;padding:12px 14px;border-radius:12px;
+             background:rgba(242,96,106,.10);border:1px solid rgba(242,96,106,.45);
+             color:#C0392B;font-size:13px;line-height:1.7;">
+          <b>下载好像没有开始？</b><br>
+          可以直接点下面的备用地址（GitHub 直链），或改用网盘下载：
+          <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.2.2.apk">重试下载</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.2.2.apk">GitHub 备用直链</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkPan" href="#" target="_blank" rel="noopener">百度网盘</a>
+          </div>
+        </div>
       </div>
 
       <div class="dl-card rv">
@@ -1576,13 +1589,18 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
    apkLocal  : 同目录相对路径（首选）——部署时把 .apk 一起传上去
    ============================================================ */
 const CFG = {
-  version : '8.1.0',
-  code    : 184,
+  /* 🔴 2026-10-30 修：这里原来是 `version:'8.1.0'` / `code:184` / `date:'2026-10-17'`，
+     而 apkName 已经是 8.2.2 —— 页面顶部显示的「v8.1.0」就是这三处不一致造成的。
+     口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
+     `sha256` 是 2026-10-30 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.2.2.apk`
+     实际下载 17,264,203 B 后本地算的（原值 1f4c8887… 是 8.1.0 那个包的，早就不对了）。 */
+  version : '8.2.2',
+  code    : 206,
   apkName : 'pillow-quiz-8.2.2.apk',
   apkLocal: 'https://www.pillowquiz.cn/apk/pillow-quiz-8.2.2.apk',
   apkSize : '16.5 MB',
-  sha256  : '1f4c88878aaae34071ae4662e081d159824b0b6608a0a015658b6b064c6bb478',
-  date    : '2026-10-17',
+  sha256  : '1d5499f090aaace14d129064e5188fd38fea2fb53b2d1e3fc2b56c37e0935c58',
+  date    : '2026-10-30',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
@@ -1609,7 +1627,7 @@ const CFG = {
   /* ---------- 注入配置到页面 ---------- */
   document.querySelectorAll('#verPill,#apkVer,#footVer').forEach(el => el.textContent = 'v' + CFG.version);
   const sz = $('#apkSize'); if (sz) sz.textContent = CFG.apkSize;
-  const fn = $('#apkFileName'); if (fn) fn.textContent = '枕头刷题-' + CFG.version + '.apk';
+  const fn = $('#apkFileName'); if (fn) fn.textContent = CFG.apkName;   /* 用真实文件名，别再拼「枕头刷题-版本.apk」——那个名字下载下来并不存在 */
   const fd = $('#footDate'); if (fd) fd.textContent = CFG.date;
   const sv = $('#shaVal'); if (sv) sv.textContent = CFG.sha256;
   const pw = $('#panPwd'); if (pw) pw.textContent = CFG.pan.baiduPwd;
@@ -1618,18 +1636,18 @@ const CFG = {
     const el = $(sel); if (el) el.href = url;
   });
 
-  /* APK：HTML 里默认写相对路径 ⇒ 先探测同目录是否真的传了安装包，没传再回退 */
+  /* APK 直链：HTML 里写的就是 apkLocal，这里再兜一次配置（两者必须同值）
+     🔴 2026-10-30 删掉了原来的 `fetch(apkLocal,{method:'HEAD'})` 预检 —— 它是净负面的：
+        · CloudBase 的 `/apk/*.apk` **不返回 `Access-Control-Allow-Origin`**（实测带 Origin 请求也没有），
+          而本页面托管在 GitHub Pages（不同源）⇒ 这个 fetch **必然被 CORS 拒**，
+          `.catch` 里会把**本来可用的** apkLocal 换成 apkFallback；
+        · 而 apkFallback 当时指向 `pillow-quiz-8.2.2.apk`，Pages 仓库里**只有 8.1.0 那个包** ⇒ 404；
+        · 结论：预检不但没起到"探测可用性"的作用，反而把好链接换成了坏链接。
+        以后**不要**再用 fetch 做跨源可用性探测（HEAD/PING 都过不去）；
+        真要探测，只能用同源资源，或者干脆不做探测、把失败显式暴露给用户（见下面的点击处理）。 */
   const apkEls = ['#dlApk'].map(s => $(s)).filter(Boolean);
   const setApk = (u) => apkEls.forEach(el => el.href = u);
   setApk(CFG.apkLocal);
-  (function probeApk() {
-    // 只在 http(s) 下探测：file:// 打开时 fetch 必然被 CORS 拦，会往控制台丢红色报错
-    const httpish = location.protocol === 'http:' || location.protocol === 'https:';
-    if (!httpish || !window.fetch) { setApk(CFG.apkFallback); return; }
-    fetch(CFG.apkLocal, { method: 'HEAD', cache: 'no-store' })
-      .then(r => { if (!r.ok) setApk(CFG.apkFallback); })
-      .catch(() => setApk(CFG.apkFallback));
-  })();
 
   /* [__pzV805bSite] webpan* = 网页版卡下的资源备份按钮 */
   /* [__pzV807Lib] 资料库按钮 href 注入（与 CFG.pan.library 同源） */
@@ -1724,7 +1742,17 @@ const CFG = {
     } catch (e) { cb.textContent = '复制失败，请手动选择'; }
   });
 
-  /* ---------- 下载按钮：主源失败自动提示备用 ---------- */
+  /* ---------- 下载按钮：失败必须"可见"，不能永远转圈 ----------
+     原实现：点击 → 转圈 → 固定 2.6s 后恢复原文案，**不论下载有没有真的开始** ⇒ 失败被藏起来。
+     用户截图里就是「正在开始下载…」卡住 + 系统提示「2 项下载失败」，但页面一句解释都没有。
+     现实现：点击 → 转圈 → 2.6s 后
+       · 页面已不可见（`visibilityState !== 'visible'`，说明确实跳去了下载器/安装器）⇒ 静默恢复，不打扰；
+       · 页面仍在前台 ⇒ 判定"大概率没开始"，露出 `#dlApkFail`（重试 / GitHub 直链 / 网盘）。
+     🔴 降级面板里三条链接全部从 CFG 注入，避免以后升版本时又漏改一处。 */
+  const failBox = $('#dlApkFail');
+  [['#dlApkRetry', CFG.apkLocal], ['#dlApkAlt', CFG.apkFallback], ['#dlApkPan', PAN_BAIDU]].forEach(([sel, url]) => {
+    const el = $(sel); if (el) el.href = url;
+  });
   document.querySelectorAll('a[href$=".apk"], #dlApk').forEach(btn => {
     btn.addEventListener('click', function () {
       if (this.dataset.busy) return;
@@ -1736,6 +1764,8 @@ const CFG = {
         this.innerHTML = raw;
         this.classList.remove('loading');
         delete this.dataset.busy;
+        /* 真开始下载 / 调起安装器时页面会转入后台；仍在前台 ⇒ 很可能没开始 */
+        if (document.visibilityState === 'visible' && failBox) failBox.hidden = false;
       }, 2600);
     });
   });
