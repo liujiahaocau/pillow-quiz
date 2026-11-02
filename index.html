@@ -881,7 +881,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.5.0.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.5.2.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -898,8 +898,8 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <b>下载好像没有开始？</b><br>
           可以直接点下面的备用地址（GitHub 直链），或改用网盘下载：
           <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.5.0.apk">重试下载</a>
-            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.5.0.apk">GitHub 备用直链</a>
+            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.5.2.apk">重试下载</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.5.2.apk">GitHub 备用直链</a>
             <a class="btn btn-ghost btn-sm" id="dlApkPan" href="#" target="_blank" rel="noopener">百度网盘</a>
           </div>
         </div>
@@ -928,7 +928,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4.5h6v6"/><path d="M20 4.5l-8.5 8.5"/><path d="M19 14.5v4a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18.5v-11A1.5 1.5 0 0 1 6.5 6h4"/></svg>
           打开网页版
         </a>
-        <!-- [__pzV805bSite] v8.5.0：使用网页版下方补「资源备份下载」按钮（与页面末尾资源区同源链接） -->
+        <!-- [__pzV805bSite] v8.5.2：使用网页版下方补「资源备份下载」按钮（与页面末尾资源区同源链接） -->
         <div class="mirror" style="margin-top:12px">
           <a class="btn btn-ghost btn-sm" href="https://pan.baidu.com/s/1gCwJwe_y8oU_85hycHkZAw?pwd=zt78" id="webpanBaidu" target="_blank" rel="noopener">百度网盘备份</a>
           <a class="btn btn-ghost btn-sm" href="https://pan.quark.cn/s/9a87ae5a493b" id="webpanQuark" target="_blank" rel="noopener">夸克网盘备份</a>
@@ -1590,22 +1590,22 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
    ============================================================ */
 const CFG = {
   /* 🔴 2026-11-02 修：这里原来是 `version:'8.1.0'` / `code:184` / `date:'2026-10-17'`，
-     而 apkName 已经是 8.5.0 —— 页面顶部显示的「v8.1.0」就是这三处不一致造成的。
+     而 apkName 已经是 8.5.2 —— 页面顶部显示的「v8.1.0」就是这三处不一致造成的。
      口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
-     `sha256` 是 2026-11-02 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.5.0.apk`
+     `sha256` 是 2026-11-02 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.5.2.apk`
      实际下载 17,264,203 B 后本地算的（原值 1f4c8887… 是 8.1.0 那个包的，早就不对了）。 */
-  version : '8.5.0',
-  code    : 206,
-  apkName : 'pillow-quiz-8.5.0.apk',
-  apkLocal: 'https://www.pillowquiz.cn/apk/pillow-quiz-8.5.0.apk',
-  apkSize : '16.5 MB',
-  sha256  : '1d5499f090aaace14d129064e5188fd38fea2fb53b2d1e3fc2b56c37e0935c58',
+  version : '8.5.2',
+  code    : 212,
+  apkName : 'pillow-quiz-8.5.2.apk',
+  apkLocal: 'https://www.pillowquiz.cn/apk/pillow-quiz-8.5.2.apk',
+  apkSize : '14.77 MB',
+  sha256  : 'a65138e2af792a6709505261f893f98f73dbd87f65e882b63e8522db9b629850',
   date    : '2026-11-02',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.5.0.apk',
+  apkFallback : 'https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.5.2.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/netdisk/share?surl=_wCY3mntnwtQNrVHlk9CPA',
     baiduPwd : 'pz80',
@@ -1641,7 +1641,7 @@ const CFG = {
         · CloudBase 的 `/apk/*.apk` **不返回 `Access-Control-Allow-Origin`**（实测带 Origin 请求也没有），
           而本页面托管在 GitHub Pages（不同源）⇒ 这个 fetch **必然被 CORS 拒**，
           `.catch` 里会把**本来可用的** apkLocal 换成 apkFallback；
-        · 而 apkFallback 当时指向 `pillow-quiz-8.5.0.apk`，Pages 仓库里**只有 8.1.0 那个包** ⇒ 404；
+        · 而 apkFallback 当时指向 `pillow-quiz-8.5.2.apk`，Pages 仓库里**只有 8.1.0 那个包** ⇒ 404；
         · 结论：预检不但没起到"探测可用性"的作用，反而把好链接换成了坏链接。
         以后**不要**再用 fetch 做跨源可用性探测（HEAD/PING 都过不去）；
         真要探测，只能用同源资源，或者干脆不做探测、把失败显式暴露给用户（见下面的点击处理）。 */
