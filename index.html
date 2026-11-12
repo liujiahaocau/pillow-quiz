@@ -883,7 +883,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.5.11.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/pillow-quiz-8.5.13.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -900,8 +900,8 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <b>下载好像没有开始？</b><br>
           可以直接点下面的备用地址（GitHub 直链），或改用网盘下载：
           <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/apk/pillow-quiz-8.5.11.apk">重试下载</a>
-            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.5.11.apk">GitHub 备用直链</a>
+            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/pillow-quiz-8.5.13.apk">重试下载</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.5.13.apk">GitHub 备用直链</a>
             <a class="btn btn-ghost btn-sm" id="dlApkPan" href="https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA" target="_blank" rel="noopener">百度网盘</a>
           </div>
         </div>
@@ -1596,21 +1596,21 @@ const CFG = {
      口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
      `sha256` 是 2026-11-02 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.5.2.apk`
      实际下载 17,264,203 B 后本地算的（原值 1f4c8887… 是 8.1.0 那个包的，早就不对了）。 */
-  version : '8.5.11',
-  code    : 244,
-  apkName : 'pillow-quiz-8.5.11.apk',
-  apkLocal: 'https://www.pillowquiz.cn/apk/pillow-quiz-8.5.11.apk',
-  apkSize : '16.69 MB',
-  sha256  : 'd524e9726455074a143fb15973d76c91db0d9c4c62f6ab6271dfd63f7d0baef7',
-  date    : '2026-11-09',
-  /* 🔴 2026-11-09 8.5.11 同步：七项与 version.json、线上 APK 逐项对齐
+  version : '8.5.13',
+  code    : 246,
+  apkName : 'pillow-quiz-8.5.13.apk',
+  apkLocal: 'https://www.pillowquiz.cn/pillow-quiz-8.5.13.apk',
+  apkSize : '17.35 MB',
+  sha256  : '54a0e1b9fe6658730ca919e6b89e31a72491076accf5a222d57e10926ade4ea5',
+  date    : '2026-11-12',
+  /* 🔴 2026-11-09 8.5.13 同步：七项与 version.json、线上 APK 逐项对齐
      （sha256 由本地 17,499,497 B 实算，非抄写）。
      这是紧急修复版：8.5.10 换壳漏了原生存储桥，题库读不回来。 */
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.5.11.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.5.13.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA',
     baiduPwd : 'pz80',
