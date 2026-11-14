@@ -714,6 +714,9 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
       <a href="#data">数据看板</a>
       <a href="#download">下载</a>
       <a href="#guide">安装说明</a>
+      <a href="#start">快速上手</a>
+      <a href="#changelog">版本更新</a>
+      <a href="#fix">报错急救</a>
       <a href="#faq">常见问题</a>
     </nav>
     <button class="theme-btn" id="themeBtn" aria-label="切换深浅色主题">
@@ -1491,6 +1494,248 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
 
 
 <!-- ========== FAQ ========== -->
+
+<style>
+/* ===== 版本更新 · 时间线 ===== */
+.pz-cl{background:var(--bg-alt);padding:54px 18px 18px}
+.pz-cl .hd{max-width:960px;margin:0 auto 26px;text-align:center}
+.pz-cl h2{margin:0 0 8px;font-size:24px;font-weight:820;color:var(--text);letter-spacing:.3px}
+.pz-cl .sub{margin:0;font-size:13.5px;color:var(--text-dim)}
+.pz-cl .tl{max-width:960px;margin:0 auto;position:relative;padding-left:28px}
+.pz-cl .tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;border-radius:2px;
+  background:linear-gradient(var(--brand),var(--border-line))}
+.pz-cl .it{position:relative;margin:0 0 15px}
+.pz-cl .it::before{content:"";position:absolute;left:-23px;top:19px;width:11px;height:11px;border-radius:50%;
+  background:var(--brand);box-shadow:0 0 0 4px rgba(107,160,255,.18)}
+.pz-cl .it.cur::before{background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+.pz-cl .card{background:var(--bg-card);border:1px solid var(--border-line);border-radius:16px;
+  padding:15px 18px 14px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.pz-cl .row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 7px}
+.pz-cl .ver{font-size:15.5px;font-weight:850;color:var(--text);letter-spacing:-.2px}
+.pz-cl .bd{font-size:11px;font-weight:800;padding:2.5px 9px;border-radius:99px;
+  background:rgba(107,160,255,.16);color:var(--brand)}
+.pz-cl .bd.new{background:rgba(34,197,94,.16);color:#4ADE80}
+.pz-cl .dt{font-size:12px;color:var(--text-dim);margin-left:auto;font-variant-numeric:tabular-nums}
+.pz-cl .ttl{margin:0 0 8px;font-size:13.4px;font-weight:700;color:var(--brand)}
+.pz-cl ul{margin:0;padding-left:17px}
+.pz-cl li{font-size:13px;color:var(--text-sub);line-height:1.95}
+.pz-cl li b{color:var(--text);font-weight:700}
+
+/* ===== 报错急救 ===== */
+.pz-fix{background:var(--bg);padding:54px 18px 18px}
+.pz-fix .hd{max-width:960px;margin:0 auto 24px;text-align:center}
+.pz-fix h2{margin:0 0 8px;font-size:24px;font-weight:820;color:var(--text);letter-spacing:.3px}
+.pz-fix .sub{margin:0;font-size:13.5px;color:var(--text-dim)}
+.pz-fix .grid{max-width:960px;margin:0 auto;display:grid;gap:13px}
+@media(min-width:820px){.pz-fix .grid{grid-template-columns:repeat(2,1fr)}}
+.pz-fix .c{border:1px solid var(--border-line);border-radius:16px;padding:15px 17px 14px;
+  background:var(--bg-card)}
+.pz-fix .q{display:flex;gap:9px;margin:0 0 10px;font-size:13.8px;font-weight:800;color:var(--text);line-height:1.55}
+.pz-fix .q i{flex:0 0 auto;width:22px;height:22px;border-radius:7px;background:rgba(229,72,77,.18);
+  color:#FF7A7A;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:900;margin-top:1px}
+.pz-fix ol{margin:0;padding:0;list-style:none;counter-reset:st}
+.pz-fix li{counter-increment:st;position:relative;padding-left:23px;font-size:12.8px;
+  color:var(--text-sub);line-height:1.9}
+.pz-fix li::before{content:counter(st);position:absolute;left:0;top:4px;width:16px;height:16px;
+  border-radius:5px;background:rgba(107,160,255,.16);color:var(--brand);font-size:10.5px;
+  font-weight:800;display:grid;place-items:center}
+.pz-fix li b{color:var(--text)}
+.pz-fix .ok{display:inline-block;margin-top:9px;font-size:11px;font-weight:800;color:#4ADE80;
+  background:rgba(34,197,94,.16);padding:2.5px 9px;border-radius:99px}
+.pz-fix .pzfx-note{max-width:960px;margin:16px auto 0;font-size:12.5px;color:var(--text-dim);
+  text-align:center;line-height:1.85}
+.pz-fix .tip b{color:var(--brand)}
+</style>
+
+
+<style>
+/* ===== 快速上手 ===== */
+.pzs{background:var(--bg-soft);padding:54px 18px 20px}
+.pzs .hd{max-width:960px;margin:0 auto 26px;text-align:center}
+.pzs h2{margin:0 0 8px;font-size:24px;font-weight:820;color:var(--text);letter-spacing:.3px}
+.pzs .sub{margin:0;font-size:13.5px;color:var(--text-dim)}
+.pzs .grid{max-width:960px;margin:0 auto;display:grid;gap:13px}
+@media(min-width:640px){.pzs .grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.pzs .grid{grid-template-columns:repeat(3,1fr)}}
+.pzs .c{position:relative;border:1px solid var(--border-line);border-radius:16px;
+  background:var(--bg-card);padding:16px 17px 15px;overflow:hidden}
+.pzs .c .n{position:absolute;right:12px;top:6px;font-size:34px;font-weight:900;
+  color:rgba(107,160,255,.13);letter-spacing:-1px;line-height:1}
+.pzs .c .t{display:flex;align-items:center;gap:8px;margin:0 0 7px;font-size:14.2px;
+  font-weight:800;color:var(--text)}
+.pzs .c .t em{flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+  font-style:normal;font-size:14px;background:rgba(107,160,255,.16);color:var(--brand)}
+.pzs .c p{margin:0;font-size:12.9px;color:var(--text-sub);line-height:1.9}
+.pzs .c .h{display:inline-block;margin-top:9px;font-size:11.5px;color:var(--brand);
+  background:rgba(107,160,255,.12);padding:3px 9px;border-radius:8px;line-height:1.6}
+.pzs .note{max-width:960px;margin:16px auto 0;text-align:center;font-size:12.5px;
+  color:var(--text-dim);line-height:1.85}
+.pzs .note a{color:var(--brand);font-weight:700;text-decoration:none}
+</style>
+
+<section class="pzs" id="start">
+  <div class="hd">
+    <h2>快速上手</h2>
+    <p class="sub">装好之后按这 6 步走 · 十分钟就能开始刷</p>
+  </div>
+  <div class="grid">
+    <div class="c"><span class="n">01</span>
+      <p class="t"><em>📥</em>导入题库</p>
+      <p>「导入题库」支持 Excel / Word / PDF / TXT / 图片 / Anki / JSON / MD / HTML / CSV，本地解码 + AI 双路识别自动取最准结果；也可以直接用自带的 340+ 份分类资料。</p>
+      <span class="h">不知道怎么写？下「导入模板」照着填</span>
+    </div>
+    <div class="c"><span class="n">02</span>
+      <p class="t"><em>🎯</em>选模式开刷</p>
+      <p>顺序刷、随机刷、专项突破（按知识点 / 题型 / 正确率筛）、限时自测都在题库详情里；多选题自动排版，答题计时逐题记录。</p>
+      <span class="h">先按错题练，再整卷模拟，效率最高</span>
+    </div>
+    <div class="c"><span class="n">03</span>
+      <p class="t"><em>✅</em>答完立刻看解析</p>
+      <p>提交即判分，正确答案、考点、每题用时一屏看清；也能切到「交卷后统一看解析」模式，模拟真实考场节奏。</p>
+      <span class="h">可给单题加笔记，边刷边记</span>
+    </div>
+    <div class="c"><span class="n">04</span>
+      <p class="t"><em>🔁</em>错题自动归集</p>
+      <p>答错即进错题本，按题库 / 题型筛选；「做对后保留错题」开关可自行决定是否移除，支持一键导出打印。</p>
+      <span class="h">考前只看错题，比再刷一遍更划算</span>
+    </div>
+    <div class="c"><span class="n">05</span>
+      <p class="t"><em>🃏</em>碎片时间背闪卡</p>
+      <p>把知识点做成卡，正面题干、反面答案，忘记 / 记住两级反馈自动排下次复习；支持按记忆曲线复习与文件夹管理。</p>
+      <span class="h">支持键盘快捷键，电脑上背更顺手</span>
+    </div>
+    <div class="c"><span class="n">06</span>
+      <p class="t"><em>☁️</em>云备份防丢</p>
+      <p>「我的 → 云备份 → 立即备份」上传一次；换手机装好 App 登录同一账号，恢复即可。备份历史可回退，不会一恢复就把本机覆盖掉。</p>
+      <span class="h">重装/换机前先备份，这是最省事的保险</span>
+    </div>
+  </div>
+  <p class="note">第一次用建议先跑一遍「每日一练」，摸清自己的正确率和薄弱点，再决定主攻哪个模块。<a href="#features">看看完整功能 →</a></p>
+</section>
+
+<section class="pz-cl" id="changelog">
+  <div class="hd">
+    <h2>版本更新</h2>
+    <p class="sub">每一版只解决真问题 · 最近的改动都在这里</p>
+  </div>
+  <div class="tl">
+    <div class="it cur">
+      <div class="card">
+        <div class="row"><span class="ver">v8.6.0</span><span class="bd new">最新</span><span class="dt">2026-11-14</span></div>
+        <p class="ttl">题库题面不再丢失 · 改题实时同步 · 备份状态透明</p>
+        <ul>
+          <li>修好「<b>换设备 / 重装后题库还在，点进去却没有题目</b>」——自建与导入库现在都会把题面完整同步</li>
+          <li>改题<b>实时同步</b>：以前只有字数变化才同步，改个错别字另一台看不到，现在任何改动都同步</li>
+          <li>备份<b>不再「看起来成功」</b>：成功会说明缺题面的数量，合并恢复会提示只回来几个题库</li>
+          <li>iPhone 网页版支付：弹窗内<b>长按二维码</b>即可识别，不再依赖被拦截的跳转</li>
+          <li>退出练习回到<b>题库详情</b>（不再跳回首页）；练习交卷加二次确认</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.5.13</span><span class="bd">稳定版</span><span class="dt">2026-11-12</span></div>
+        <p class="ttl">资源库与班级体验</p>
+        <ul>
+          <li>资源库分类条<b>吸顶</b>，行测 / 申论子类切换有缓存，不再闪一下又跳回</li>
+          <li>闪卡文件夹支持<b>重命名 / 删除</b>，牌组可整体移动到别的文件夹</li>
+          <li>游客买的会员：登录后<b>绑定邮箱</b>即可保住，不会覆盖丢失</li>
+          <li>超格十套补全 <b>1260 题</b>（6×130 + 4×120），按卷独立赋分</li>
+          <li>断网<b>自动重连自愈</b>，开屏自动检测登录态，凭证过期会提示重新登录</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.5.11</span><span class="bd">紧急修复</span><span class="dt">2026-11-09</span></div>
+        <p class="ttl">安卓外壳换新后的读题库问题</p>
+        <ul>
+          <li>修好换新外壳后<b>题库读取为空</b>（原生存储桥缺失导致退回 5MB 浏览器存储）</li>
+          <li>大题库用户不再频繁遇到「存储空间不足」</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pz-fix" id="fix">
+  <div class="hd">
+    <h2>报错急救</h2>
+    <p class="sub">遇到这些提示别急 · 按顺序点几下基本都能好</p>
+  </div>
+  <div class="grid">
+    <div class="c">
+      <p class="q"><i>1</i>资源库 / 备份提示「云端读取失败」，列表空着</p>
+      <ol>
+        <li>到「我的」退出登录，再用同一邮箱重新登录</li>
+        <li>回资源库点右上角「刷新」</li>
+        <li>仍不行就切换一下网络（WiFi ↔ 流量）再刷新</li>
+      </ol>
+      <span class="ok">多数是偶发断联，重登一次即恢复</span>
+    </div>
+    <div class="c">
+      <p class="q"><i>2</i>题库显示有 N 题，点进去却是 0 题 / 一片空白</p>
+      <ol>
+        <li>打开「我的 → 云备份」，点「修复：从云端重新加载官方题库题面」</li>
+        <li>若仍为空：回到原来那台设备，联网后随便保存一次</li>
+        <li>最后再回新设备打开该题库</li>
+      </ol>
+      <span class="ok">v8.6.0 已从同步机制上根修</span>
+    </div>
+    <div class="c">
+      <p class="q"><i>3</i>备份提示成功，但列表里没有新记录</p>
+      <ol>
+        <li>先升级到 v8.6.0（加入写后回读校验）</li>
+        <li>旧版本请再点一次「立即备份」，等 10 秒后下拉刷新列表</li>
+        <li>仍然没有：退出重登后再备份</li>
+      </ol>
+      <span class="ok">v8.6.0 已修「假成功」</span>
+    </div>
+    <div class="c">
+      <p class="q"><i>4</i>会员突然失效 / 显示成非会员</p>
+      <ol>
+        <li>先在「我的」重新登录（多数是登录态过期）</li>
+        <li>确认购买时用的是<b>当前这个账号的邮箱</b></li>
+        <li>游客状态下买的会员：登录后绑定邮箱会自动合并</li>
+      </ol>
+    </div>
+    <div class="c">
+      <p class="q"><i>5</i>导入失败 / 识别不准 / 题目串行</p>
+      <ol>
+        <li>用页面上的「导入模板」按格式填：Excel 两列 = 正面 / 背面</li>
+        <li>Word / TXT 用「问:…」「答:…」配对，或每行「正面|背面」</li>
+        <li>扫描件 PDF 识别率低，优先 Excel / Word；图片题建议整页截图导入</li>
+      </ol>
+    </div>
+    <div class="c">
+      <p class="q"><i>6</i>提示「存储空间不足」/ 保存失败</p>
+      <ol>
+        <li>浏览器版有 5MB 本地上限，重度使用请装安卓 App（走原生存储）</li>
+        <li>或在「云备份」里删掉几份旧存档腾空间</li>
+        <li>已装 App 仍报错：清一次 App 缓存后重启</li>
+      </ol>
+    </div>
+    <div class="c">
+      <p class="q"><i>7</i>iPhone 网页版点「去支付」没反应</p>
+      <ol>
+        <li>别点按钮，在弹出的窗口里<b>长按二维码</b>识别</li>
+        <li>或长按「复制链接」，再到支付宝里打开</li>
+        <li>付完回到 App 点「我已支付」刷新状态</li>
+      </ol>
+      <span class="ok">Safari 会拦截跳转，长按识别最稳</span>
+    </div>
+    <div class="c">
+      <p class="q"><i>8</i>换手机后数据不全 / 少了几个题库</p>
+      <ol>
+        <li>旧手机：「我的 → 云备份 → 立即备份」先上传</li>
+        <li>新手机：登录同一账号 → 云备份 → 恢复</li>
+        <li>别急着选「清空本机」，先确认云端已有最新存档</li>
+      </ol>
+    </div>
+  </div>
+  <p class="pzfx-note">上面都没解决？在 App 内「我的 → 关于与更新 → 云开发诊断」跑一次，把结果截图发给管理员，能直接定位是断网、登录态还是权限问题。</p>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <div class="sec-head rv">
