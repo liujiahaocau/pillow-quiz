@@ -1698,7 +1698,21 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="tl">
     <div class="it cur">
       <div class="card">
-        <div class="row"><span class="ver">v8.6.1</span><span class="bd new">最新</span><span class="dt">2026-11-14</span></div>
+        <div class="row"><span class="ver">v8.6.1</span><span class="bd new">最新</span><span class="dt">2026-11-15</span></div>
+        <p class="ttl">AI 自动修正错题 · PDF 交给 WorkBuddy 变题库 · 学习时长校正</p>
+        <ul>
+          <li>刷题时每题下方新增「<b>AI 自动修正</b>」：题干、选项、答案、解析有错，点一下让 AI 改准，动手前并排给你看「原题 → 修正后」</li>
+          <li>AI 修正<b>只改你这一台设备</b>：不上云、不影响别人的题库，换设备后仍是原样</li>
+          <li>导入预览弹窗底部新增「<b>用 WorkBuddy 制作题库</b>」：PDF、拍照卷子交给手机版 WorkBuddy，直接变成能导入的题库文件</li>
+          <li>首页条幅「海量题库」换成「<b>制作题库</b>」：点一下直达导入界面并自动展开教程</li>
+          <li>学习时长<b>不再虚高</b>：一道题挂着 5 分钟没有任何操作就不算在做题，点一下屏幕立刻恢复计时</li>
+          <li>「存储空间不足」提示写出<b>实际占用</b>并给出清理入口；断网自动重试几次，不再一断就报错</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.6.0</span><span class="bd">上一版</span><span class="dt">2026-11-14</span></div>
         <p class="ttl">题库题面不再丢失 · 改题实时同步 · 备份状态透明</p>
         <ul>
           <li>修好「<b>换设备 / 重装后题库还在，点进去却没有题目</b>」——自建与导入库现在都会把题面完整同步</li>
@@ -1916,23 +1930,20 @@ const CFG = {
   /* 🔴 2026-11-02 修：这里原来是 `version:'8.1.0'` / `code:184` / `date:'2026-10-17'`，
      而 apkName 已经是 8.5.2 —— 页面顶部显示的「v8.1.0」就是这三处不一致造成的。
      口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
-     `sha256` 是 2026-11-02 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.6.1.apk`
-     实际下载 17,264,203 B 后本地算的（原值 1f4c8887… 是 8.1.0 那个包的，早就不对了）。 */
-  version : '8.6.0',
-  code    : 246,
+     2026-11-15 8.6.1：version / code / apkSize / sha256 / date 由 _shots/_fix_site861.py
+     直接按 04_部署/OTA/pillow-quiz-8.6.1.apk 实算写入（不抄 version.json，避免两边一起错）。 */
+  version : '8.6.1',
+  code    : 261,
   apkName : 'pillow-quiz-8.6.1.apk',
   apkLocal: 'https://www.pillowquiz.cn/pillow-quiz-8.6.1.apk',
-  apkSize : '17.35 MB',
-  sha256  : '6621d558aa690be80113c2ee9354aeed90b7cb50454fdf715b0634db215b007d',
-  date    : '2026-11-12',
-  /* 🔴 2026-11-09 8.6.0 同步：七项与 version.json、线上 APK 逐项对齐
-     （sha256 由本地 17,499,497 B 实算，非抄写）。
-     这是紧急修复版：8.5.10 换壳漏了原生存储桥，题库读不回来。 */
+  apkSize : '17.50 MB',
+  sha256  : 'ca4f9f667f84ae8ff3c93c5519e8989c2a4b2a07abee8d2cfb77b4eaa563270b',
+  date    : '2026-11-15',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.6.1.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.6.1.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA',
     baiduPwd : 'pz80',
