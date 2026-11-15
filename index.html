@@ -932,7 +932,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/pillow-quiz-8.6.0.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/pillow-quiz-8.6.1.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -949,8 +949,8 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <b>下载好像没有开始？</b><br>
           可以直接点下面的备用地址（GitHub 直链），或改用网盘下载：
           <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/pillow-quiz-8.6.0.apk">重试下载</a>
-            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.6.0.apk">GitHub 备用直链</a>
+            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/pillow-quiz-8.6.1.apk">重试下载</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.6.1.apk">GitHub 备用直链</a>
             <a class="btn btn-ghost btn-sm" id="dlApkPan" href="https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA" target="_blank" rel="noopener">百度网盘</a>
           </div>
         </div>
@@ -1275,6 +1275,37 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
       </div>
     </div>
     <p class="tpl-note rv">整理好的文件在 App 里走「我的题库 → 导入题库」选择即可；也支持 Anki(.apkg)、粉笔模板、CSV / JSON / Markdown 等格式。</p>
+  </div>
+</section>
+
+<!-- ========== 用 WorkBuddy 制作题库 —— PDF / 图片直接变成能导入的题库文件 ========== -->
+<section id="workbuddy">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker">WorkBuddy</span>
+      <h2>手里只有 PDF、拍照卷子？让 WorkBuddy 做成题库</h2>
+      <p class="sec-sub">讲义是 PDF、卷子是手机拍的、题目散在 Word 里排版还很乱——这些都不用自己一题一题录。把文件发给手机版 WorkBuddy 的「枕头刷题制作专家」，它会整理成 App 能直接识别的题库文件，你再导入进来。</p>
+    </div>
+
+    <div class="tpl-grid">
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">① 发文件</span><span class="tpl-tag">PDF · Word · 截图</span></div>
+        <p class="tpl-desc">在 WorkBuddy 里把 PDF、Word 或拍照的卷子发给它，一次可以发多份。扫描版、图片题也能认，不用先自己转文字。</p>
+      </div>
+
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">② 找专家，说一句话</span><span class="tpl-tag">制作专家</span></div>
+        <p class="tpl-desc">找到专家「枕头刷题制作专家」，把要求说清楚：按题号拆题、补上选项字母、答案与解析分开、配图保留在原题下。它会按 App 的题库格式整理。</p>
+      </div>
+
+      <div class="tpl-card rv">
+        <div class="tpl-head"><span class="tpl-name">③ 导回来</span><span class="tpl-tag">.ztsb.json</span></div>
+        <p class="tpl-desc">拿回整理好的题库文件，在 App 里走「我的题库 → 导入题库」选它即可，题型、选项、答案、解析、配图都会自动归位。</p>
+      </div>
+    </div>
+
+    <p class="tpl-note rv"><b>一句话模板（直接抄）：</b>「把这个 PDF 里的题目整理成枕头刷题能导入的题库文件：按题号拆题，选项保留 A/B/C/D，答案单独标出来，解析跟在每题后面，题干里的配图保留在原题下面。」<br>
+    需要 WorkBuddy 手机版（App 内「导入题库 → 用 WorkBuddy 做题库」有下载入口和这段提示语，可直接复制）。解析不出来的旧文件、只有图片的卷子，走这条路比手工录入快得多。</p>
   </div>
 </section>
 
@@ -1667,7 +1698,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="tl">
     <div class="it cur">
       <div class="card">
-        <div class="row"><span class="ver">v8.6.0</span><span class="bd new">最新</span><span class="dt">2026-11-14</span></div>
+        <div class="row"><span class="ver">v8.6.1</span><span class="bd new">最新</span><span class="dt">2026-11-14</span></div>
         <p class="ttl">题库题面不再丢失 · 改题实时同步 · 备份状态透明</p>
         <ul>
           <li>修好「<b>换设备 / 重装后题库还在，点进去却没有题目</b>」——自建与导入库现在都会把题面完整同步</li>
@@ -1726,16 +1757,16 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
         <li>若仍为空：回到原来那台设备，联网后随便保存一次</li>
         <li>最后再回新设备打开该题库</li>
       </ol>
-      <span class="ok">v8.6.0 已从同步机制上根修</span>
+      <span class="ok">v8.6.1 已从同步机制上根修</span>
     </div>
     <div class="c">
       <p class="q"><i>3</i>备份提示成功，但列表里没有新记录</p>
       <ol>
-        <li>先升级到 v8.6.0（加入写后回读校验）</li>
+        <li>先升级到 v8.6.1（加入写后回读校验）</li>
         <li>旧版本请再点一次「立即备份」，等 10 秒后下拉刷新列表</li>
         <li>仍然没有：退出重登后再备份</li>
       </ol>
-      <span class="ok">v8.6.0 已修「假成功」</span>
+      <span class="ok">v8.6.1 已修「假成功」</span>
     </div>
     <div class="c">
       <p class="q"><i>4</i>会员突然失效 / 显示成非会员</p>
@@ -1885,12 +1916,12 @@ const CFG = {
   /* 🔴 2026-11-02 修：这里原来是 `version:'8.1.0'` / `code:184` / `date:'2026-10-17'`，
      而 apkName 已经是 8.5.2 —— 页面顶部显示的「v8.1.0」就是这三处不一致造成的。
      口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
-     `sha256` 是 2026-11-02 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.6.0.apk`
+     `sha256` 是 2026-11-02 从 `https://www.pillowquiz.cn/apk/pillow-quiz-8.6.1.apk`
      实际下载 17,264,203 B 后本地算的（原值 1f4c8887… 是 8.1.0 那个包的，早就不对了）。 */
   version : '8.6.0',
   code    : 246,
-  apkName : 'pillow-quiz-8.6.0.apk',
-  apkLocal: 'https://www.pillowquiz.cn/pillow-quiz-8.6.0.apk',
+  apkName : 'pillow-quiz-8.6.1.apk',
+  apkLocal: 'https://www.pillowquiz.cn/pillow-quiz-8.6.1.apk',
   apkSize : '17.35 MB',
   sha256  : '6621d558aa690be80113c2ee9354aeed90b7cb50454fdf715b0634db215b007d',
   date    : '2026-11-12',
@@ -1901,7 +1932,7 @@ const CFG = {
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.6.0.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.6.1.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA',
     baiduPwd : 'pz80',
@@ -1937,7 +1968,7 @@ const CFG = {
         · CloudBase 的 `/apk/*.apk` **不返回 `Access-Control-Allow-Origin`**（实测带 Origin 请求也没有），
           而本页面托管在 GitHub Pages（不同源）⇒ 这个 fetch **必然被 CORS 拒**，
           `.catch` 里会把**本来可用的** apkLocal 换成 apkFallback；
-        · 而 apkFallback 当时指向 `pillow-quiz-8.6.0.apk`，Pages 仓库里**只有 8.1.0 那个包** ⇒ 404；
+        · 而 apkFallback 当时指向 `pillow-quiz-8.6.1.apk`，Pages 仓库里**只有 8.1.0 那个包** ⇒ 404；
         · 结论：预检不但没起到"探测可用性"的作用，反而把好链接换成了坏链接。
         以后**不要**再用 fetch 做跨源可用性探测（HEAD/PING 都过不去）；
         真要探测，只能用同源资源，或者干脆不做探测、把失败显式暴露给用户（见下面的点击处理）。 */
