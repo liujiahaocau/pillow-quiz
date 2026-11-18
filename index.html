@@ -932,7 +932,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/pillow-quiz-8.6.5.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="https://www.pillowquiz.cn/pillow-quiz-8.6.9.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -949,8 +949,8 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <b>下载好像没有开始？</b><br>
           可以直接点下面的备用地址（GitHub 直链），或改用网盘下载：
           <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/pillow-quiz-8.6.5.apk">重试下载</a>
-            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/apk/pillow-quiz-8.6.5.apk">GitHub 备用直链</a>
+            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://www.pillowquiz.cn/pillow-quiz-8.6.9.apk">重试下载</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.6.9.apk" target="_blank" rel="noopener">GitHub 备用直链</a>
             <a class="btn btn-ghost btn-sm" id="dlApkPan" href="https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA" target="_blank" rel="noopener">百度网盘</a>
           </div>
         </div>
@@ -1698,7 +1698,55 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="tl">
     <div class="it cur">
       <div class="card">
-        <div class="row"><span class="ver">v8.6.5</span><span class="bd new">最新</span><span class="dt">2026-11-17</span></div>
+        <div class="row"><span class="ver">v8.6.9</span><span class="bd new">最新</span><span class="dt">2026-11-18</span></div>
+        <p class="ttl">断网恢复彻底修好 · 退出登录不再强制备份</p>
+        <ul>
+          <li><b>断网再恢复，APP 真正接得回云端了</b>：8.6.8 只做了探活，还漏了四层 —— 探活缓存会把断网期间的结果记成"还活着"、恢复后压根不查云端（<code>App.load</code> 只读本地）、断网期间攒的本地改动没有补交、以及网络刚恢复时的超时会被当成失败直接弹给用户。这四层现在全部补上，恢复后会走跟"刚登录"完全一样的四步：会员档 → 补交本地写入 → 双向同步 → 权限刷新</li>
+          <li><b>离线 / 断联时首页都会出现提示条</b>，带「↻ 刷新」和「重新登录」两个按钮。以前只有登录态失效才显示，断网时什么都不提示</li>
+          <li><b>退出登录不再强制备份</b>：改成三选一「备份并退出 / 不保存直接退出 / 取消」。选不保存就立刻登出，一行网络请求都不发</li>
+          <li>其余延续 8.6.7 / 8.6.8：论坛币兑换不再白扣、保存题目不再假卡死、闪卡评分显示下次间隔</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.6.8</span><span class="dt">2026-11-18</span></div>
+        <p class="ttl">断网恢复后自动重连，不用再重新登录</p>
+        <ul>
+          <li><b>断网再恢复，APP 会自动接回云端</b>：以前飞行模式开一下再关，APP 就跟云端断了，数据同步不了，非得重新登录才行。现在网络一恢复，APP 会自己重新校验登录状态、必要时静默续期，然后把数据拉回来</li>
+          <li>只有在「登录状态确实失效、且本机没有可用凭证」时才会提示重新登录，正常断网不会再打扰</li>
+          <li>其余延续 8.6.7：论坛币兑换不再白扣 200 币、保存题目不再假卡死、首页断联有提示条可一键刷新、闪卡评分显示下次间隔</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.6.7</span><span class="dt">2026-11-18</span></div>
+        <p class="ttl">论坛币不再白扣 · 保存不再卡顿 · 首页断联可一键刷新</p>
+        <ul>
+          <li><b>永久会员点「200 币换 1 天」不再白扣 200 币</b>：以前点了会扣币但天数不叠加，现在按钮直接显示「已是永久会员」且不可点，服务端也拦了一层</li>
+          <li><b>保存题目不再假卡死</b>：以前保存瞬间整页重绘，界面点不动，强退会导致改动丢失；现在先落盘、先提示「已保存」，再刷新界面</li>
+          <li><b>首页新增云端提示条</b>：断网/云端连不上时顶部出现提示，带「刷新」和「重新登录」两个按钮，不用再靠退出重进</li>
+          <li><b>闪卡评分显示下次间隔</b>：忘记 / 模糊 / 记住 三个按钮上分别标出「10 分钟内 / 本轮再来 / N 天后」</li>
+          <li>登录被判游客、闪卡底部横条被导航栏遮挡等问题继续修复</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.6.6</span><span class="dt">2026-11-17</span></div>
+        <p class="ttl">游客误判修复 · 闪卡评分显示下次间隔 · 底部浮层不再压导航栏</p>
+        <ul>
+          <li>登录后仍提示「游客」的问题已修：能认出「身份是真的、只是本地留了旧标记」并自动清掉</li>
+          <li>闪卡评分按钮按 Anki 的做法显示「下次什么时候再来」：10 分钟内 / 本轮再来 / N 天后</li>
+          <li>闪卡底部横条不再被导航栏压掉一半；牌组超过 20 个也保持两列</li>
+          <li>上一页 / 下一页的页码会跟着走；图片查看器放大后说明文字不再压住图片</li>
+        </ul>
+      </div>
+    </div>
+    <div class="it">
+      <div class="card">
+        <div class="row"><span class="ver">v8.6.5</span><span class="dt">2026-11-17</span></div>
         <p class="ttl">会员补偿 7 天 · 登录一次性说明弹窗</p>
         <ul>
           <li>支付服务异常期间，有 6 位会员的到期时间正好落在故障窗口内，已<b>各补 7 天</b>，到期时间顺延</li>
@@ -2001,18 +2049,18 @@ const CFG = {
      口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
      2026-11-17 8.6.3：version / code / apkSize / sha256 / date 全部按
      04_部署/OTA/pillow-quiz-8.6.5.apk 实算写入（不抄 version.json，避免两边一起错）。 */
-  version : '8.6.5',
-  code    : 266,
-  apkName : 'pillow-quiz-8.6.5.apk',
-  apkLocal: 'https://www.pillowquiz.cn/pillow-quiz-8.6.5.apk',
-  apkSize : '17.54 MB',
-  sha256  : '86a77482cc2629360a4f772cd829b3c029edce9481438818d9170b57f0399c70',
-  date    : '2026-11-17',
+  version : '8.6.9',
+  code    : 270,
+  apkName : 'pillow-quiz-8.6.9.apk',
+  apkLocal: 'https://www.pillowquiz.cn/pillow-quiz-8.6.9.apk',
+  apkSize : '17.55 MB',
+  sha256  : 'd4440511c05ec776997ba6d44a988820a14cd6b53c88b137bd526ab6aba47cd7',
+  date    : '2026-11-18',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.6.5.apk',
+  apkFallback : 'https://liujiahaocau.github.io/pillow-quiz/pillow-quiz-8.6.9.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA',
     baiduPwd : 'pz80',
