@@ -932,7 +932,7 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <li>支持拍照录题、番茄钟悬浮球</li>
           <li>自动检查更新，不用手动找新版</li>
         </ul>
-        <a class="btn btn-primary" id="dlApk" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.4.apk" download>
+        <a class="btn btn-primary" id="dlApk" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.5.apk" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           下载 APK 安装包
         </a>
@@ -949,8 +949,8 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
           <b>下载好像没有开始？</b><br>
           可以直接点下面的备用地址（GitHub 直链），或改用网盘下载：
           <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.4.apk">重试下载</a>
-            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.4.apk" target="_blank" rel="noopener">GitHub 备用直链</a>
+            <a class="btn btn-primary btn-sm" id="dlApkRetry" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.5.apk">重试下载</a>
+            <a class="btn btn-ghost btn-sm" id="dlApkAlt" href="https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.5.apk" target="_blank" rel="noopener">GitHub 备用直链</a>
             <a class="btn btn-ghost btn-sm" id="dlApkPan" href="https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA" target="_blank" rel="noopener">百度网盘</a>
           </div>
         </div>
@@ -1698,7 +1698,22 @@ footer{padding:42px 0 34px;border-top:1px solid var(--border-soft);background:va
   <div class="tl">
     <div class="it cur">
       <div class="card">
-        <div class="row"><span class="ver">v8.7.4</span><span class="bd new">最新</span><span class="dt">2026-11-20</span></div>
+        <div class="row"><span class="ver">v8.7.5</span><span class="bd new">最新</span><span class="dt">2026-11-20</span></div>
+<p class="ttl">刷题不再点一下等半秒 · 弹窗 × 能立刻关</p>
+<ul>
+<li>刷题翻页不再卡：以前每点一次「下一题」都要把整个题库重新存一遍，几千题的库点一次接近一秒；现在只存进度，立即响应</li>
+<li>弹窗点右上角 × 立刻关闭（之前偶尔点了没反应、要连点好几次）</li>
+<li>字号「特大」再放大一档，列表、卡片、按钮、弹窗一起变大</li>
+<li>平板 / 电脑上弹窗不再挤成一条窄框</li>
+<li>错题、收藏可一键清空；批量复制可指定目标文件夹</li>
+<li>新增「子母题」题型：填同一个组标识即绑定，随机练习整组连着出</li>
+<li>添加笔记支持加粗；闪卡大屏整幅铺开，页码改为「第 N / M 张」</li>
+</ul>
+</div>
+</div>
+<div class="it">
+<div class="card">
+<div class="row"><span class="ver">v8.7.4</span><span class="dt">2026-11-20</span></div>
         <p class="ttl">首页更快出 · 启动不再反复重绘</p>
         <ul>
           <li>「我的」页改成分块加载：滚到哪块才算哪块，点开即见，不再白卡</li>
@@ -2073,18 +2088,18 @@ const CFG = {
      口径：version / code / apkName / sha256 / date **必须与 version.json 和线上 APK 逐项一致**。
      2026-11-17 8.6.3：version / code / apkSize / sha256 / date 全部按
      04_部署/OTA/pillow-quiz-8.6.5.apk 实算写入（不抄 version.json，避免两边一起错）。 */
-  version : '8.7.4',
-  code    : 275,
-  apkName : 'pillow-quiz-8.7.4.apk',
-  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.4.apk',
+  version : '8.7.5',
+  code    : 276,
+  apkName : 'pillow-quiz-8.7.5.apk',
+  apkLocal: 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.5.apk',
   apkSize : '17.58 MB',
-  sha256  : '6940954ec693d7ecdc6e6d206e1f78812a22f4ef1590b26d7990f999e60e738f',
+  sha256  : 'c77492479fbca4bf67e87bc978c43c7913a319fbd873ad2cb4e03a1c483363c7',
   date    : '2026-11-20',
   /* 网页版（App 本体）固定指向 CloudBase —— 它不随官网托管搬家 */
   /* [__pzWebFix] 网页版本体已迁到 /app/ —— 原值指向根路径会让「直接网页使用」刷新官网自身（死循环） */
   web     : 'https://www.pillowquiz.cn/app/',
   /* APK 回退源：万一部署时漏传了安装包，仍能从 CloudBase 取到 */
-  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.4.apk',
+  apkFallback : 'https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.7.5.apk',
   pan     : {
     baidu : 'https://pan.baidu.com/s/1H6D3gJdtriz59AI2MNkefA',
     baiduPwd : 'pz80',
