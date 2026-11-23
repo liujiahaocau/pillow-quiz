@@ -1,17 +1,18 @@
 {
-  "version": "8.8.2",
-  "latestVersion": "8.8.2",
-  "code": 356,
+  "version": "8.8.3",
+  "latestVersion": "8.8.3",
+  "code": 362,
   "minCode": 100,
   "force": false,
   "forceUpdate": false,
   "webUrl": "https://www.pillowquiz.cn/app/",
-  "releaseNote": "紧急修复：点续费/升级没有反应 · 闪卡字段兼容 · 会员链路修复",
+  "releaseNote": "闪卡目录导入、题面上下标与长图缩放修复",
   "releaseDate": "2026-11-23",
-  "apkSize": 18490729,
-  "apkSha256": "e09b72a9c7cd557a0fa8eda41076f236cf3b7c77eb77bf9513746dc302590889",
-  "sha256": "e09b72a9c7cd557a0fa8eda41076f236cf3b7c77eb77bf9513746dc302590889",
-  "apk": "https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.8.2.apk",
-  "downloadUrl": "https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.8.2.apk",
-  "note": "【v8.8.2（2026-11-23）】\n\n紧急修复：8.8.1 点「续费 / 升级」没有反应\n\n一、问题\n在 8.8.1 里点会员的「续费 / 升级」，界面什么都不弹，没有任何提示，看起来像按钮坏了。\n原因是 8.8.1 新增的一段「下单前检查」把请求提前拦掉了，被拦时又因为一个内部异常导致界面静默。\n\n二、现在\n整段检查已删除，点「续费 / 升级」立刻弹出支付窗口，和 8.7.6 一样。\n支付链路本身（下单、查单）在服务端已修好，这版不需要你再做任何操作。\n\n三、8.8.1 已包含的其它修复（本版同样包含）\n· 闪卡：不同字段命名的牌组不再空白（问题/答案、q/a、单词/释义等都能显示）\n· 会员：下单不再要求账号必须能在用户表查到；付完能正常查到订单状态\n· 支付：不再一遇到「登录失效」就清掉你的登录凭证\n· 题库详情：不再显示 NaN% 进度\n· 出错页面：都有返回键了\n\n本次为强制建议更新，覆盖安装即可，数据与会员权益不受影响。"
+  "apkSize": 18855549,
+  "apkSha256": "bd71de362765f947c92e342d2b50519e21b0144f4a13117e8eaeb11386776d5c",
+  "sha256": "bd71de362765f947c92e342d2b50519e21b0144f4a13117e8eaeb11386776d5c",
+  "apk": "https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.8.3-362.apk",
+  "downloadUrl": "https://pillow-quiz-d9g75obbhb6283f31-1428965531.tcloudbaseapp.com/pillow-quiz-8.8.3-362.apk",
+  "note": "【v8.8.3（2026-11-23）】\n\n· 闪卡导入 Anki 保留原牌组层级，图片与文本挖空照常可用。\n· 修复 PDF/Word/Anki 导入后题面上下标丢失（如 V₄～V₆）。\n· 图片挖空支持全屏查看与 100%%–300%% 缩放，可滚动到长图底部。\n· 安卓端内置离线解析组件，断网也能导入 Anki 牌组。",
+  "versionCode": 362
 }
